@@ -22,6 +22,7 @@ pkg install -y \
 sysrc nginx_enable=YES
 sysrc redis_enable=YES
 sysrc memcached_enable=YES
+sysrc php_fpm_enable=YES
 
 mkdir -p /usr/locat/www/project
 
@@ -45,12 +46,12 @@ http {
 
         location /admin {
             index  index.php index.html;
-            try_files $uri $uri/ /admin/index.php;
+            try_files $uri $uri/ /admin/index.php$is_args$args;
         }
 
         location / {
             index  index.php index.html;
-            try_files $uri $uri/ /index.php;
+            try_files $uri $uri/ /index.php$is_args$args;
         }
 
         location ~ \.php$ {
