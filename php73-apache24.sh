@@ -25,12 +25,13 @@ pkg install -y \
     php73-curl \
     consul
 
-<FilesMatch "\.php$">
-    SetHandler application/x-httpd-php
-</FilesMatch>
-<FilesMatch "\.phps$">
-    SetHandler application/x-httpd-php-source
-</FilesMatch>
+# to /usl/local/etc/apache24/httpd.conf
+#<FilesMatch "\.php$">
+#    SetHandler application/x-httpd-php
+#</FilesMatch>
+#<FilesMatch "\.phps$">
+#    SetHandler application/x-httpd-php-source
+#</FilesMatch>
 
 sysrc apache24_enable=YES
 sysrc redis_enable=YES
