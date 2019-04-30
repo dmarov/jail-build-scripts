@@ -23,7 +23,7 @@ pkg install -y \
     php73-pear-Mail_Mime \
     php73-pear-Mail \
     php73-curl \
-    consul
+    php73-fileinfo
 
 <FilesMatch "\.php$">
     SetHandler application/x-httpd-php
