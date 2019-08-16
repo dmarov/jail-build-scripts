@@ -6,3 +6,4 @@ BASEDIR=$(dirname $SCRIPTFULLPATH);
 pw useradd user -m -s /usr/local/bin/zsh -u 1001
 
 cp $BASEDIR/assets/sudoers /usr/local/etc/sudoers
+chmod 110 /usr/local/etc/sudoers
