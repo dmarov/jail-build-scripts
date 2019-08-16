@@ -1,19 +1,24 @@
-#!/bin/sh # install packages
+#!/bin/sh
+
+##
+# builds web server based on apache24 + php73
+#
+#
 
 SCRIPTFULLPATH=$(realpath $0);
 BASEDIR=$(dirname $SCRIPTFULLPATH);
+SCRDIR="$BASEDIR/../scripts"
 
-export ASSUME_ALWAYS_YES=yes
+export ASSUME_ALWAYS_YES="YES"
 
-$BASEDIR/../scripts/install-zsh.sh
-$BASEDIR/../scripts/install-php73.sh
-$BASEDIR/../scripts/install-apache24.sh
-$BASEDIR/../scripts/install-git.sh
+$SCRDIR/install-zsh.sh
+$SCRDIR/create-user.sh
+$SCRDIR/install-php73.sh
+$SCRDIR/install-apache24.sh
+$SCRDIR/install-redis.sh
+$SCRDIR/install-memcached.sh
+$SCRDIR/install-video-worker.sh
+$SCRDIR/install-git.sh
+$SCRDIR/install-sudo.sh
+$SCRDIR/install-rsync.sh
 
-pkg install -y \
-    memcached \
-    redis \
-    ffmpeg
-
-sysrc redis_enable=YES
-sysrc memcached_enable=YES
